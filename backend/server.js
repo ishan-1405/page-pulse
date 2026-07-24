@@ -28,14 +28,25 @@ app.post("/audit", async (req, res) => {
         const report = auditPage(page.html);
 
         res.json({
-            statusCode: page.statusCode,
-            responseTime: page.responseTime,
-            title: report.title,
-            metaDescription: report.metaDescription,
-            h1Count: report.h1Count,
-            imagesMissingAlt: report.imagesMissingAltText,
-            wordCount: report.wordCount
-        });
+         statusCode: page.statusCode,
+        responseTime: page.responseTime,
+
+        title: report.title,
+        titleLength: report.titleLength,
+
+        metaDescription: report.metaDescription,
+        metaDescriptionLength: report.metaDescriptionLength,
+
+        h1Count: report.h1Count,
+        h2Count: report.h2Count,
+
+        canonical: report.canonical,
+        viewport: report.viewport,
+
+        imagesMissingAlt: report.imagesMissingAltText,
+
+        wordCount: report.wordCount
+});
 
     } catch (error) {
         res.status(error.statusCode || 500).json({
