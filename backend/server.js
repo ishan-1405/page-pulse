@@ -2,8 +2,10 @@ const express = require("express");
 const validateUrl = require("./utils/validateUrl");
 const fetchPage = require("./services/fetchPage");
 const auditPage = require("./parsers/auditPage");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 // Home route
