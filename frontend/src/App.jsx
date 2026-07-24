@@ -19,7 +19,7 @@ function App() {
     setReport(null);
 
     try {
-      const response = await fetch("http://localhost:3000/audit", {
+      const response = await fetch("https://page-pulse-backend-2ypj.onrender.com/audit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
