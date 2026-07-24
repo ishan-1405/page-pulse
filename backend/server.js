@@ -1,5 +1,6 @@
 const express = require("express");
 const validateUrl = require("./utils/validateUrl");
+const fetchPage = require("./services/fetchPage");
 
 const app = express();
 app.use(express.json());
@@ -10,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 // Audit route
-app.post("/audit", (req, res) => {
+app.post("/audit", async (req, res) => {
   const { url } = req.body;
 
   if (!validateUrl(url)) {
@@ -19,10 +20,21 @@ app.post("/audit", (req, res) => {
     });
   }
 
-  res.json({
-    message: "Audit request received",
-    url
-  });
+  try {
+    const page = await fetchPage(url);
+
+    res.json({
+      message: "Page fetched successfully",
+      statusCode: page.statusCode,
+      responseTime: page.responseTime
+    });
+
+  } catch (error) {
+    res.status(error.statusCode || 500).json({
+      error: error.message,
+      responseTime: error.responseTime
+    });
+  }
 });
 
 // Port configuration
