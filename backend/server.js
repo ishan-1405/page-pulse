@@ -1,4 +1,5 @@
 const express = require("express");
+const validateUrl = require("./utils/validateUrl");
 
 const app = express();
 app.use(express.json());
@@ -11,10 +12,17 @@ app.get("/", (req, res) => {
 // Audit route
 app.post("/audit", (req, res) => {
   const { url } = req.body;
+
+  if (!validateUrl(url)) {
+    return res.status(400).json({
+      error: "Please provide a valid HTTP or HTTPS URL."
+    });
+  }
+
   res.json({
     message: "Audit request received",
     url
-}); 
+  });
 });
 
 // Port configuration
