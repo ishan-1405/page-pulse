@@ -8,6 +8,7 @@ This project was developed as part of the **Digital Heroes Software Development 
 
 ---
 
+
 ## Live Demo
 
 Frontend
@@ -23,6 +24,10 @@ GitHub Repository
 https://github.com/ishan-1405/page-pulse
 
 ---
+
+## AI Usage
+
+I used ChatGPT and GitHub Copilot as development assistants throughout this project. ChatGPT helped me understand unfamiliar concepts, troubleshoot issues, discuss implementation approaches, and refine the application's structure, testing, and documentation. GitHub Copilot assisted with code completion and speeding up repetitive coding tasks while I was implementing features. Rather than accepting suggestions as-is, I reviewed, modified, and integrated them into my own implementation. I also customised the frontend design, improved error handling, added additional parsing metrics, wrote and verified unit tests, and refined the project documentation to ensure the final submission reflected my understanding and decisions.
 
 ## Features
 
